@@ -9,10 +9,11 @@ services:
       EULA: "TRUE"
       TYPE: "FORGE"
       VERSION: "LATEST"
+      MODS_FILE: /extras/mods.txt
     tty: true
     stdin_open: true
     restart: unless-stopped
     volumes:
       # attach a directory relative to the directory containing this compose file
       - ./minecraft-data:/data
-      - ./minecraft-mods:/mods
+      - ./mods.txt:/extras/mods.txt:ro
