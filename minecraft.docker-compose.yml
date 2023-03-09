@@ -15,3 +15,4 @@ services:
     volumes:
       # attach a directory relative to the directory containing this compose file
       - ./minecraft-data:/data
+      - ./minecraft-mods:/mods
