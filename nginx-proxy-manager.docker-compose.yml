@@ -3,15 +3,17 @@ version: "3"
 services:
   nginx_proxy_manager:
     image: 'jc21/nginx-proxy-manager:latest'
+    network_mode: host
     restart: unless-stopped
     ports:
-      - '80:8080' # Public HTTP Port
-      - '81:8181' # Admin Web Port
-      - '443:4443' # Public HTTPS Port
+      - '8080:8080' # Public HTTP Port
+      - '8181:8181' # Admin Web Port
+      - '4443:4443' # Public HTTPS Port
 
     environment:
       # TODO check this
-      DISABLE_IPV6: 'true'
+      DISABLE_IPV6: 1
+      CONTAINER_DEBUG: 1
 
     volumes:
       - ./nginx-proxy-manager:/config:rw
